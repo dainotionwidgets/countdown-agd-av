@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Montserrat:900">
+<style>
+  
+body { 
+    min-width: none;
+    min-height: none;
+}
+
+h1 {
+    text-align: center;
+    font-size: 1em;
+    letter-spacing: 1px;
+    color: #938d9b;
+}
+  
+#timer {
+  text-align: center;
+  font-size: 0.7em;
+  letter-spacing: 5px;
+
+  display: flex;
+  flex-wrap: wrap;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#d, #h, #m, #s {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  color:  #f2f2f2;
+  font-size: 1.5em;
+  text-align: center;
+  background: #b59bbd;
+  height: 2rem;
+  width: 5rem;
+  border-radius: 9px;
+  margin: 2px;
+}
+    </style>
+</head>
+<body>
+
+<h1>29/08 - 05/10 Simulado I</h1>
+<div id="timer">
+    <div id="d"> </div>
+    <div id="h"> </div>
+    <div id="m"> </div>
+    <div id="s"> </div>
+</div>
+</body>
+<script>
+const year = new Date().getFullYear()
+const myDate = new Date('Out 5, 2022 00:00:00')
+console.log(myDate)
+
+let timer = setInterval(function() {
+
+  const today = new Date().getTime()
+
+  const diff = myDate - today
+
+  let d = Math.floor(diff / (1000 * 60 * 60 * 24))
+  let h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+  let m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))
+  let s = Math.floor((diff % (1000 * 60)) / 1000)
+
+  document.getElementById("d").innerHTML=d + 'D'
+  document.getElementById("h").innerHTML=h + 'H'
+  document.getElementById("m").innerHTML=m + 'M'
+  document.getElementById("s").innerHTML=s + 'S'
+}, 1)
+</script>
+</html>
